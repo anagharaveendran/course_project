@@ -27,3 +27,18 @@ http.createServer(function (req, res) {
 	// The server object listens on port 3000
 	console.log("server start at port 3000");
 });
+
+const db = require("./models");
+db.mongoose
+  .connect(db.url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => {
+    console.log("Connected to the database!");
+    
+  })
+  .catch(err => {
+    console.log("Cannot connect to the database!", err);
+    process.exit();
+  });
