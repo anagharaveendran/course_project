@@ -46,6 +46,8 @@ app.get('/genres', function (req, res) {
     res.json({ message: "All Genres Data in JSON format from Mongo DB" });
 });
 
+//require("./routes/genre.routes")(app);
+
 app.get('/artists', function (req, res) {
     res.json({ message: "All Artists Data in JSON format from Mongo DB" });
 });

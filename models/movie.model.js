@@ -11,7 +11,7 @@ module.exports = mongoose => {
             release_date: { type : Date },
             publish_date: { type : Date },
             artists: [String],
-            geners: [String],
+            genres: [String],
             duration: { type : Number, default: 60 , min : 0, max: 1200 },
             critic_range: { type : Number },
             trailer_url: { type : String },
