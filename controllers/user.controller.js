@@ -69,7 +69,7 @@ let user = await User.findOne(filter);
 if(user === null) {
 res.status(401).send({
 
-    message: "Email or password not correct."
+    message: "Username or password not correct."
 });
 } else {
   if (user.isLoggedIn == true){
@@ -88,7 +88,7 @@ res.status(401).send({
 }; 
 
 
-// Update isLoggedIn parameter of a User.
+
 exports.logout = async (req, res) => {
   // Validate request
   if (!req.body.id) {
@@ -101,7 +101,6 @@ const id = req.body.id;
 const update = { isLoggedIn: false };
 
 let data = await User.findByIdAndUpdate(id, update);
-//console.log(data);
 res.send({ message: "Logged Out successfully." });
 } catch(err) {
     res.status(404).send({
@@ -109,3 +108,23 @@ res.send({ message: "Logged Out successfully." });
     });
 }
 }; 
+
+exports.getCouponCode = async (req, res) => {
+  const token = req.headers["x-access-token"] || req.headers["authorization"];
+    User.find({accesstoken: token}).then(function(user){
+        if(user[0].coupens)
+            res.send(user[0].coupens);
+        else
+            res.send([]);
+    }); 
+  };
+
+    exports.bookShow = (req, res) => {
+      const token = req.headers["x-access-token"] || req.headers["authorization"];
+      User.find({accesstoken: token}).then(function(user){
+          if(user[0].bookingRequests)
+              res.send(user[0].bookingRequests);
+          else
+              res.send([]);
+      }); 
+    };
