@@ -33,7 +33,7 @@ try {
     
     let saveMovie = await movie.save(); 
     //when fail its goes to catch
-    res.send(saveMovie); //when success.
+    res.send(saveMovie); 
    
   } catch (err) {
     

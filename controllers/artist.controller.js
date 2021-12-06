@@ -21,8 +21,7 @@ try {
    
     let saveArtist = await artist.save(); 
     //when fail its goes to catch
-    res.send(saveArtist); //when success.
-  
+    res.send(saveArtist); 
   } catch (err) {
     
     res.status(500).send({

@@ -18,7 +18,7 @@ try {
    
     let saveGenre = await genre.save(); 
     //when fail its goes to catch
-    res.send(saveGenre); //when success.
+    res.send(saveGenre); 
   
   } catch (err) {
     
