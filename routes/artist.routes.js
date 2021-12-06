@@ -1,9 +1,9 @@
 module.exports = app => {
-    const artists = require("../controllers/artist.controller");
+    const artists = require("../controllers/artist.controller.js");
     
       var router = require("express").Router();
     
-      router.get("/artists", genres.findAllArtists);
+      router.get("/artists", artists.findAllArtists);
       
       app.use('/api', router);
     };

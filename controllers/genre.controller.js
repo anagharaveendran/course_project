@@ -2,7 +2,7 @@ const db = require("../models");
 const Genre = db.genres;
 
 // Create and Save a genre
-exports.enroll = async (req, res) => {
+exports.create = async (req, res) => {
   // Validate request
   if (!req.body.genreid) {
     res.status(400).send({ message: "Content can not be empty!" });

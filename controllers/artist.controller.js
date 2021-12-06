@@ -2,7 +2,7 @@ const db = require("../models");
 const Artist = db.artists;
 
 // Create and Save a artist
-exports.enroll = async (req, res) => {
+exports.create = async (req, res) => {
   // Validate request
   if (!req.body.artistid) {
     res.status(400).send({ message: "Content can not be empty!" });
@@ -44,3 +44,4 @@ exports.findAllArtists = async (req, res) => {
         });
       }
   };
+
