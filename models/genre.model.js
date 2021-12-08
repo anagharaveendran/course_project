@@ -1,3 +1,5 @@
+
+//	Genre Model Schema is created as per Mongo DB Genre Collection
 module.exports = mongoose => {
     const Genres = mongoose.model(
         "genres",

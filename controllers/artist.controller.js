@@ -14,7 +14,7 @@ try {
   const artist = new Artist({
     artistid: req.body.artistid,
     first_name: req.body.first_name,
-    lwiki_url: req.body.wiki_url,
+    wiki_url: req.body.wiki_url,
     profile_url: req.body.profile_url,
     movies: req.body.movies
     });

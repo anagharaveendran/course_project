@@ -1,3 +1,5 @@
+//User Model Schema is created as per Mongo DB User Collection
+
 module.exports = mongoose => {
     const Users = mongoose.model(
         "users",

@@ -62,38 +62,44 @@ exports.findAllMovies = async (req, res) => {
 
 //to fetch all details of a movie given its id.
   exports.findOne = async (req, res) => {
-    try {
-    const id = req.params.id;
-    let data = await Movie.findById(id);
-    
-    if (!data)
-        res.status(404).send({ message: "Not found Movie with id " + id });
-    else 
-        res.send(data);
-    } catch(err) {
-          res.status(500).send({
-            message:
-              err.message || "Error retrieving Movie with id=" + id });
-        }
-    };
+    const id = req.params.movieId;
+    const data =await db.movies.find({movieid: id});
+    console.log({movieid:id});
+    console.log(data);
+    if(!data){
+        res.status(404).send({ message: "Not found movie with id " + id });
+    }
+    res.json(data);
+
+}
     
 
 
 //to fetch details of shows of a specific movie given its id.
+// exports.findShows = async (req, res) => {
+//   try {
+//     const id = req.params.movieid;
+//   let data = await Movie.findById(id).select('shows').distinct('shows');
+
+// res.send(data);
+//   } catch(err) {
+//       res.status(500).send({
+//         message:
+//           err.message || "Internal error occured"
+//       });
+//     }
+// };
+
 exports.findShows = async (req, res) => {
-  try {
-    const id = req.params.id;
-  let data = await Movie.findById(id).select('shows').distinct('shows');
 
-res.send(data);
-  } catch(err) {
-      res.status(500).send({
-        message:
-          err.message || "Internal error occured"
-      });
-    }
-};
+  const id=req.params.movieId;
+  const show=await db.movies.findById({movies:id}).shows;
+  if(!show  || shows.length === 0){
+      res.status(404).send({ message: "Not found shows with id " + id });
+  }
+  else{
+      res.json(show);
+  }
 
-
-
+}
 

@@ -9,9 +9,9 @@ module.exports = app => {
   
       router.post("/auth/logout", users.logout);
 
-      router.get("/auth/getCouponCode", users.getCouponCode);
+      router.get("/auth/coupons", users.getCouponCode);
 
-      router.get("/auth/bookShow", users.bookShow);
+      router.post("/auth/bookings", users.bookShow);
 
-      app.use('/api', router);
+      //app.use('/api', router);
     };
