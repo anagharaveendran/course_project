@@ -50,7 +50,7 @@ exports.findAllMovies = async (req, res) => {
     try {
     let data = await Movie.find({});
   
-  res.send(data);
+  res.send({movies:data});
     } catch(err) {
         res.status(500).send({
           message:
@@ -76,20 +76,6 @@ exports.findAllMovies = async (req, res) => {
 
 
 //to fetch details of shows of a specific movie given its id.
-// exports.findShows = async (req, res) => {
-//   try {
-//     const id = req.params.movieid;
-//   let data = await Movie.findById(id).select('shows').distinct('shows');
-
-// res.send(data);
-//   } catch(err) {
-//       res.status(500).send({
-//         message:
-//           err.message || "Internal error occured"
-//       });
-//     }
-// };
-
 exports.findShows = async (req, res) => {
 
   const id=req.params.movieId;

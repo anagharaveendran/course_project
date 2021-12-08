@@ -35,7 +35,7 @@ exports.findAllArtists = async (req, res) => {
     try {
     let data = await Artist.find({});
   
-  res.send(data);
+  res.send({artists:data});
     } catch(err) {
         res.status(500).send({
           message:
